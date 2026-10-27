@@ -2,7 +2,7 @@ package com.example.lepokedex.model;
 
 public class Pokemon {
 
-    private String Nombre;
+    private String nombre;
 
     private int hp;
     private int ataque;
@@ -12,7 +12,7 @@ public class Pokemon {
     private Tipo tipoPokemon;
 
     public Pokemon(String nombre, int hp, int ataque, int defensa, int velocidad, Tipo tipoPokemon) {
-        Nombre = nombre;
+        this.nombre = nombre;
         this.hp = hp;
         this.ataque = ataque;
         this.defensa = defensa;
@@ -24,11 +24,11 @@ public class Pokemon {
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        this.nombre = nombre;
     }
 
     public int getHp() {
