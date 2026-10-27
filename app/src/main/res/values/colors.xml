@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="fuego">#FF7B50</color>
+    <color name="planta">#4EBD52</color>
+    <color name="agua">#03A9F4</color>
+    <color name="tierra">#8B5E3C</color>
+    <color name="fantasma">#A685FF</color>
+    <color name="electrico">#FFC107</color>
 </resources>
