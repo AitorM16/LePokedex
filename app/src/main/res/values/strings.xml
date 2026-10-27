@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">LePokedex</string>
+    <string name="app_name">Le Pokedex</string>
+    <string name="editar_pokemon">Editar Pokemon</string>
+    <string name="filtrar">Filtrar</string>
+    <string name="nuevo_pokemon">Nuevo Pokemon</string>
+    <string name="volver">Volver</string>
+    <string name="guardar">Guardar</string>
+    <string name="anadir">Añadir</string>
+    <string name="editar">Editar</string>
+    <string name="borrar">Borrar</string>
+    <string name="hp">HP</string>
+    <string name="ataque">Ataque</string>
+    <string name="defensa">Defensa</string>
+    <string name="velocidad">Velocidad</string>
+
 </resources>
