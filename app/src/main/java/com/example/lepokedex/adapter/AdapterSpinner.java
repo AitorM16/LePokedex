@@ -32,7 +32,7 @@ public class AdapterSpinner extends ArrayAdapter {
     private int obtenerColor(String texto) {
         switch (texto) {
             case "Fuego":
-                return ContextCompat.getColor(getContext(), R.color.fuego);;
+                return ContextCompat.getColor(getContext(), R.color.fuego);
             case "Agua":
                 return ContextCompat.getColor(getContext(), R.color.agua);
             case "Tierra":
@@ -60,14 +60,20 @@ public class AdapterSpinner extends ArrayAdapter {
             convertView= LayoutInflater.from(context).inflate(android.R.layout.simple_dropdown_item_1line,null);
         }
         TextView vista = (TextView) super.getView(position, convertView, parent);
-        colorear(vista, (String) getItem(position));
+        String texto = getItem(position).toString();
+        if (texto != null) {
+            colorear(vista, texto);
+        }
         return vista;
     }
 
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
         TextView vista = (TextView) super.getDropDownView(position, convertView, parent);
-        colorear(vista, (String) getItem(position));
+        String texto = getItem(position).toString();
+        if (texto != null) {
+            colorear(vista, texto);
+        }
         return vista;
     }
 }

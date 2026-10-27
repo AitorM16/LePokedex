@@ -6,8 +6,8 @@ import com.example.lepokedex.model.Tipo;
 import java.util.ArrayList;
 
 public class ListaPokemon {
-    private static ArrayList<Pokemon> listaPokemons;
-    private static ArrayList<Tipo>  tiposPokemon;
+    private static ArrayList<Pokemon> listaPokemons = new ArrayList<>();
+    private static ArrayList<Tipo>  tiposPokemon = new ArrayList<>();
 
     public static ArrayList<Pokemon> getListaPokemons() {
         return listaPokemons;
