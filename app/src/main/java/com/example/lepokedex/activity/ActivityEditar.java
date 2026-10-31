@@ -1,7 +1,6 @@
 package com.example.lepokedex.activity;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;

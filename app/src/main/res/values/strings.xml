@@ -12,5 +12,13 @@
     <string name="ataque">Ataque</string>
     <string name="defensa">Defensa</string>
     <string name="velocidad">Velocidad</string>
+    <string name="fuego">Fuego</string>
+    <string name="agua">Agua</string>
+    <string name="tierra">Tierra</string>
+    <string name="electrico">Electrico</string>
+    <string name="fantasma">Fantasma</string>
+    <string name="nombre">Nombre</string>
+    <string name="tipo">Tipo</string>
+
 
 </resources>

@@ -16,6 +16,7 @@ public class ListaPokemon {
     public static void anadirPokemon(Pokemon pokemon) {
         listaPokemons.add(pokemon);
     }
+    public static void eliminarPokemon(Pokemon pokemon){listaPokemons.remove(pokemon);}
 
     private static void anadirTipoPokemon(){
         tiposPokemon.add(Tipo.Electrico);

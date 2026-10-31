@@ -17,7 +17,7 @@ import com.example.lepokedex.model.Tipo;
 
 import java.util.List;
 
-public class AdapterSpinner extends ArrayAdapter {
+public class AdapterSpinner extends ArrayAdapter<Tipo> {
     private Context context;
     private List<Tipo> lista;
     private int resource;

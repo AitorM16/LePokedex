@@ -1,7 +1,6 @@
 package com.example.lepokedex.activity;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,8 +43,6 @@ public class ActivityNuevo extends AppCompatActivity {
                 return;
             }
 
-            // Try para asegurar de que se pasen numeros en las estádisticas
-            try {
                 int hp = Integer.parseInt(hpStr);
                 int ataque = Integer.parseInt(ataqueStr);
                 int defensa = Integer.parseInt(defensaStr);
@@ -56,9 +53,7 @@ public class ActivityNuevo extends AppCompatActivity {
 
                 Toast.makeText(this, "¡Pokémon añadido con éxito!", Toast.LENGTH_SHORT).show();
                 finish();
-            } catch (NumberFormatException e) {
-                Toast.makeText(this, "Los campos de estadísticas deben ser numéricos", Toast.LENGTH_SHORT).show();
-            }
+
         });
 
         binder.btnVolver.setOnClickListener(v -> finish());
