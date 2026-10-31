@@ -60,7 +60,6 @@ public class ActivityEditar extends AppCompatActivity {
                 int velocidad = Integer.parseInt(velocidadStr);
 
                 if (pokemonEditar != null) {
-                    // Actualizamos los datos directamente en el objeto recibido
                     pokemonEditar.setNombre(nombre);
                     pokemonEditar.setHp(hp);
                     pokemonEditar.setAtaque(ataque);
@@ -68,8 +67,7 @@ public class ActivityEditar extends AppCompatActivity {
                     pokemonEditar.setVelocidad(velocidad);
                     pokemonEditar.setTipoPokemon(tipoSeleccionado);
 
-                    // Nota: Como `ListaPokemon` almacena las referencias de los objetos en el ArrayList,
-                    // al modificar las propiedades de `pokemonAEditar`, este se actualiza automáticamente en la lista.
+
 
                     Toast.makeText(this, "Proceso realizado correctamente", Toast.LENGTH_SHORT).show();
                     finish();
