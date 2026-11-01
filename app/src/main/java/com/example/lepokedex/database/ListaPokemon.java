@@ -13,10 +13,14 @@ public class ListaPokemon {
         return listaPokemons;
     }
 
-    public static void anadirPokemon(Pokemon pokemon) {
-        listaPokemons.add(pokemon);
+    public static void anadirPokemon(Pokemon pokemon) {listaPokemons.add(pokemon);
     }
-    public static void eliminarPokemon(Pokemon pokemon){listaPokemons.remove(pokemon);}
+    public static void eliminarPokemon(Pokemon pokemon){listaPokemons.removeIf(p -> p.getNombre().equals(pokemon.getNombre()) &&
+            p.getHp() == pokemon.getHp() &&
+            p.getAtaque() == pokemon.getAtaque() &&
+            p.getDefensa() == pokemon.getDefensa() &&
+            p.getVelocidad() == pokemon.getVelocidad() &&
+            p.getTipoPokemon().equals(pokemon.getTipoPokemon()));}
 
     private static void anadirTipoPokemon(){
         tiposPokemon.add(Tipo.Electrico);

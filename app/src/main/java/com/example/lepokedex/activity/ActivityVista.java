@@ -27,7 +27,7 @@ public class ActivityVista extends AppCompatActivity {
 
         if (pokemon != null) {
             binder.tvDetailName.setText(pokemon.getNombre());
-            binder.tvDetailType.setText("Type: " + pokemon.getTipoPokemon().toString());
+            binder.tvDetailType.setText("Tipo: " + pokemon.getTipoPokemon().toString());
             binder.tvDetailHp.setText("HP: " + pokemon.getHp());
             binder.tvDetailAttack.setText("Attack: " + pokemon.getAtaque());
             binder.tvDetailDefense.setText("Defense: " + pokemon.getDefensa());
@@ -35,23 +35,22 @@ public class ActivityVista extends AppCompatActivity {
         if (pokemon.getTipoPokemon() != null) {
             switch (pokemon.getTipoPokemon().toString().toLowerCase()) {
                 case "electrico":
-                    // Si tienes una imagen en drawable ponla aquí (ej: R.drawable.ic_electrico)
-                    binder.ivDetailImage.setImageResource(R.color.electrico);
+                    binder.ivDetailImage.setImageResource(R.drawable.img_2);
                     break;
                 case "fuego":
-                    binder.ivDetailImage.setImageResource(R.color.fuego);
+                    binder.ivDetailImage.setImageResource(R.drawable.img);
                     break;
                 case "agua":
-                    binder.ivDetailImage.setImageResource(R.color.agua);
+                    binder.ivDetailImage.setImageResource(R.drawable.img_4);
                     break;
                 case "planta":
-                    binder.ivDetailImage.setImageResource(R.color.planta);
+                    binder.ivDetailImage.setImageResource(R.drawable.img_3);
                     break;
                 case "tierra":
-                    binder.ivDetailImage.setImageResource(R.color.tierra);
+                    binder.ivDetailImage.setImageResource(R.drawable.img_5);
                     break;
                 case "fantasma":
-                    binder.ivDetailImage.setImageResource(R.color.fantasma);
+                    binder.ivDetailImage.setImageResource(R.drawable.img_1);
                     break;
             }
         }
@@ -62,5 +61,12 @@ public class ActivityVista extends AppCompatActivity {
                     Toast.makeText(this, "Operación realizada correctamente", Toast.LENGTH_SHORT).show();
                     finish();
                 });
+
+            binder.btnEditar.setOnClickListener(v -> {
+                Intent intent = new Intent(this, ActivityEditar.class);
+                intent.putExtra("pokemon", pokemon);
+                startActivity(intent);
+            });
+        }
     }
-}}
+}
