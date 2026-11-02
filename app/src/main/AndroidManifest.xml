@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LePokedex">
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.ActivitySplash"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -31,6 +31,10 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".activity.ActivityVista"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activity.MainActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>
