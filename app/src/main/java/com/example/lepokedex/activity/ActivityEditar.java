@@ -1,5 +1,6 @@
 package com.example.lepokedex.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -15,6 +16,7 @@ public class ActivityEditar extends AppCompatActivity {
 
     private ActivityEditarBinding binder;
     private Pokemon pokemonEditar;
+    private String nombreOriginal; // Lo usaremos para localizar el Pokémon en la lista si cambia de nombre
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class ActivityEditar extends AppCompatActivity {
             pokemonEditar = (Pokemon) getIntent().getSerializableExtra("pokemon");
 
             if (pokemonEditar != null) {
+                nombreOriginal = pokemonEditar.getNombre(); // Guardamos el nombre original para buscarlo luego
 
                 binder.etNombre.setText(pokemonEditar.getNombre());
                 binder.etHp.setText(String.valueOf(pokemonEditar.getHp()));
@@ -38,6 +41,7 @@ public class ActivityEditar extends AppCompatActivity {
                 binder.spinnerTipo.setSelection(spinnerAdapter.getPosition(pokemonEditar.getTipoPokemon()));
             }
         }
+
         binder.btnGuardar.setOnClickListener(v -> {
             String nombre = binder.etNombre.getText().toString().trim();
             String hpStr = binder.etHp.getText().toString().trim();
@@ -46,7 +50,6 @@ public class ActivityEditar extends AppCompatActivity {
             String velocidadStr = binder.etVelocidad.getText().toString().trim();
             Tipo tipoSeleccionado = (Tipo) binder.spinnerTipo.getSelectedItem();
 
-            // Validación de campos vacíos
             if (nombre.isEmpty() || hpStr.isEmpty() || ataqueStr.isEmpty() || defensaStr.isEmpty() || velocidadStr.isEmpty()) {
                 Toast.makeText(this, "Atención: Todos los campos deben estar completados", Toast.LENGTH_SHORT).show();
                 return;
@@ -58,29 +61,43 @@ public class ActivityEditar extends AppCompatActivity {
                 int defensa = Integer.parseInt(defensaStr);
                 int velocidad = Integer.parseInt(velocidadStr);
 
-                if (pokemonEditar != null) {
+                // Buscamos el Pokémon real en la lista global de la base de datos usando el nombre original
+                boolean encontrado = false;
+                for (Pokemon p : ListaPokemon.getListaPokemons()) {
+                    if (p.getNombre().equals(nombreOriginal) || (pokemonEditar != null && p == pokemonEditar)) {
+                        p.setNombre(nombre);
+                        p.setHp(hp);
+                        p.setAtaque(ataque);
+                        p.setDefensa(defensa);
+                        p.setVelocidad(velocidad);
+                        p.setTipoPokemon(tipoSeleccionado);
+                        encontrado = true;
+                        break;
+                    }
+                }
+
+                // Si por alguna razón no lo encontró en el bucle, modificamos directamente el objeto si existe
+                if (!encontrado && pokemonEditar != null) {
                     pokemonEditar.setNombre(nombre);
                     pokemonEditar.setHp(hp);
                     pokemonEditar.setAtaque(ataque);
                     pokemonEditar.setDefensa(defensa);
                     pokemonEditar.setVelocidad(velocidad);
                     pokemonEditar.setTipoPokemon(tipoSeleccionado);
-
-
-
-                    Toast.makeText(this, "Proceso realizado correctamente", Toast.LENGTH_SHORT).show();
-                    finish();
                 }
+
+                Toast.makeText(this, "Proceso realizado correctamente", Toast.LENGTH_SHORT).show();
+                setResult(RESULT_OK);
+                finish(); // Esto obliga siempre a cerrar la pantalla y volver atrás
+
             } catch (NumberFormatException e) {
                 Toast.makeText(this, "Error: Las estadísticas deben ser numéricas", Toast.LENGTH_SHORT).show();
             }
         });
 
-        // Botón Cancelar / Volver
         binder.btnVolver.setOnClickListener(v -> {
             Toast.makeText(this, "Operación cancelada", Toast.LENGTH_SHORT).show();
             finish();
         });
-
     }
 }
